@@ -14,3 +14,7 @@ logs/
 # OS
 .DS_Store
 Thumbs.db
+
+# __pycache__ 폴더와 그 안의 모든 .pyc 파일 무시
+__pycache__/
+*.pyc
