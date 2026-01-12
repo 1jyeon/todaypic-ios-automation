@@ -23,3 +23,6 @@ class CalendarPage(BasePage):
     
     def is_picker_move_button_displayed(self):
         return self.wait_for_element(self.PICKER_MOVE_BTN).is_displayed()
+    
+    def get_current_month_text(self):
+        return self.wait_for_element(self.HEADER_DATE).spilt('')[1].replace('달','').is_displayed()

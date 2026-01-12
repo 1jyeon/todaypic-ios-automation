@@ -1,4 +1,3 @@
-import pytest
 from pages.calendar_page import CalendarPage
 
 def test_verify_main_calendar_ui(driver):
@@ -25,3 +24,19 @@ def test_open_date_picker_dialog(driver):
     calendar_page.click_header()
   
     assert calendar_page.is_picker_move_button_displayed(), "날짜 선택 다이얼이 열리지 않았습니다."
+
+def test_swipe_before_calendar(driver):
+    calendar_page = CalendarPage(driver)
+    before_month = calendar_page.get_current_month_text()
+    calendar_page.swipe_calendar(direction="right")
+    after_month = calendar_page.get_current_month_text()       
+
+    assert before_month!=after_month, "스와이프 후에 달이 변경되지 않았습니다"
+
+def test_swipe_after_calendar(driver):
+    calendar_page = CalendarPage(driver)
+    before_month = calendar_page.get_current_month_text()
+    calendar_page.swipe_calendar(direction="left")
+    after_month = calendar_page.get_current_month_text()       
+
+    assert before_month==after_month, "스와이프 후에 달이 변경되었습니다"
