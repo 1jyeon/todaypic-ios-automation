@@ -2,6 +2,7 @@ from pages.picker_page import PickerPage
 from pages.calendar_page import CalendarPage
 
 def test_picker_open(driver):
+    ## TC-PICKER_DIALOG-001##
     picker_page = PickerPage(driver)
     calender_page = CalendarPage(driver)
     calender_page.click_header()
@@ -10,6 +11,7 @@ def test_picker_open(driver):
     assert picker_page.BTN_PICKER_CONFIRM(), "다이얼 아래 이동이 표시되지 않았습니다."
 
 def test_calendar_picker_navigation(driver):
+    ## TC-PICKER_DIALOG-002##
     picker_page = PickerPage(driver)
     calender_page = CalendarPage(driver)
     target_y = "25년"
